@@ -17,7 +17,7 @@ struct ContentView: View {
             Rectangle()
                 .foregroundColor(Color("Main-Purple"))
                 .edgesIgnoringSafeArea(.all)
-            VStack(spacing: 20) {
+            VStack(spacing: 10) {
                 HStack {
                     Text("Welcome, Segun")
                         .font(.title)
