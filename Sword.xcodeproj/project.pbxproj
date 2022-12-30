@@ -11,6 +11,7 @@
 		5088837C295E46210029198B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5088837B295E46210029198B /* ContentView.swift */; };
 		5088837E295E46220029198B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5088837D295E46220029198B /* Assets.xcassets */; };
 		50888381295E46220029198B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50888380295E46220029198B /* Preview Assets.xcassets */; };
+		5088838A295E50180029198B /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50888389295E50180029198B /* CardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		5088837B295E46210029198B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5088837D295E46220029198B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50888380295E46220029198B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		50888389295E50180029198B /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +54,8 @@
 			isa = PBXGroup;
 			children = (
 				50888379295E46210029198B /* SwordApp.swift */,
-				5088837B295E46210029198B /* ContentView.swift */,
+				50888388295E4FFC0029198B /* Components */,
+				50888387295E4D470029198B /* Views */,
 				5088837D295E46220029198B /* Assets.xcassets */,
 				5088837F295E46220029198B /* Preview Content */,
 			);
@@ -65,6 +68,22 @@
 				50888380295E46220029198B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		50888387295E4D470029198B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5088837B295E46210029198B /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		50888388295E4FFC0029198B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				50888389295E50180029198B /* CardView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5088837C295E46210029198B /* ContentView.swift in Sources */,
+				5088838A295E50180029198B /* CardView.swift in Sources */,
 				5088837A295E46210029198B /* SwordApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
