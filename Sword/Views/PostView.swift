@@ -11,6 +11,11 @@ struct PostView: View {
     @State var scripture = ""
     @State var verse = ""
     var categories = ["Love", "Anxiety", "Healing", "Anger", "Hope", "Fear", "Peace", "Stress", "Patience", "Loss", "Joy", "Temptation", "Pride", "Doubt"]
+    
+    func dismissKey() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+    
     var body: some View {
         ZStack {
             Rectangle()
@@ -110,6 +115,8 @@ struct PostView: View {
                         .clipShape(Circle())
                 }.padding(.trailing, 25)
             }.padding(.bottom, 20)
+        }.onTapGesture {
+            dismissKey()
         }
     }
 }
