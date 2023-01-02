@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var addView = false
     @State var tempList = ["Give all your worries and cares to God, for he cares about you.",
                            "Don’t worry about anything; instead, pray about everything.",
                            "Seek the Kingdom of God above all else, and live righteously, and he will give you everything you need.",
@@ -50,7 +51,7 @@ struct ContentView: View {
                         HStack {
                             Spacer()
                             Button {
-//                                addButton.toggle()
+                                addView.toggle()
                             } label: {
                                 Image(systemName: "plus")
                                     .foregroundColor(Color("Text-Purple"))
@@ -60,6 +61,10 @@ struct ContentView: View {
                                 .clipShape(Circle())
                         }.padding(.trailing, 25)
                     }.padding(.bottom, 20)
+            
+                .sheet(isPresented: $addView) {
+                    PostView()
+                }
             
         }
     }
