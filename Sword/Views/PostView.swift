@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PostView: View {
     @State var scripture = ""
-    @State var verse = "Matthew 6:33"
+    @State var verse = ""
     var categories = ["Love", "Anxiety", "Healing", "Anger", "Hope", "Fear", "Peace", "Stress", "Patience", "Loss", "Joy", "Temptation", "Pride", "Doubt"]
     var body: some View {
         ZStack {
