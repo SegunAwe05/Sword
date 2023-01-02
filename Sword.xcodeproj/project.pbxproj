@@ -13,6 +13,7 @@
 		50888381295E46220029198B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50888380295E46220029198B /* Preview Assets.xcassets */; };
 		5088838A295E50180029198B /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50888389295E50180029198B /* CardView.swift */; };
 		5088838C296361960029198B /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5088838B296361960029198B /* PostView.swift */; };
+		5088838E29638B450029198B /* CategoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5088838D29638B450029198B /* CategoryButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		50888380295E46220029198B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		50888389295E50180029198B /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		5088838B296361960029198B /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
+		5088838D29638B450029198B /* CategoryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				50888389295E50180029198B /* CardView.swift */,
+				5088838D29638B450029198B /* CategoryButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -160,6 +163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5088837C295E46210029198B /* ContentView.swift in Sources */,
+				5088838E29638B450029198B /* CategoryButton.swift in Sources */,
 				5088838A295E50180029198B /* CardView.swift in Sources */,
 				5088838C296361960029198B /* PostView.swift in Sources */,
 				5088837A295E46210029198B /* SwordApp.swift in Sources */,

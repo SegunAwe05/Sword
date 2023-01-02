@@ -68,58 +68,24 @@ struct PostView: View {
                         
                         HStack {
                             ForEach(categories[0...3], id: \.self) { item in
-                                Button {
-                                    print(item)
-                                } label: {
-                                    Text(item)
-                                        .padding()
-                                        .background(Color("Text-Purple"))
-                                        .foregroundColor(.black)
-                                        .cornerRadius(7)
-                                }
+                                CategoryButton(topic: item)
                             }
                         }
                         
                         HStack {
                             ForEach(categories[4...6], id: \.self) { item in
-                                Button {
-                                    print(item)
-                                } label: {
-                                    Text(item)
-                                        .padding()
-                                        .background(Color("Text-Purple"))
-                                        .foregroundColor(.black)
-                                        .cornerRadius(7)
-                                }
-                                
+                                CategoryButton(topic: item)
                             }
                         }
                         
                         HStack {
                             ForEach(categories[7...10], id: \.self) { item in
-                                Button {
-                                    print(item)
-                                } label: {
-                                    Text(item)
-                                        .padding()
-                                        .background(Color("Text-Purple"))
-                                        .foregroundColor(.black)
-                                        .cornerRadius(7)
-                                }
-                                
+                                CategoryButton(topic: item)
                             }
                         }
                         HStack {
                             ForEach(categories[11...13], id: \.self) { item in
-                                Button {
-                                    print(item)
-                                } label: {
-                                    Text(item)
-                                        .padding()
-                                        .background(Color("Text-Purple"))
-                                        .foregroundColor(.black)
-                                        .cornerRadius(7)
-                                }
+                                CategoryButton(topic: item)
                             }
                         }
                     }
