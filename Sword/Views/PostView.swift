@@ -21,7 +21,7 @@ struct PostView: View {
             Rectangle()
                 .edgesIgnoringSafeArea(.all)
                 .foregroundColor(Color("Main-Purple"))
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 VStack(spacing: 15) {
                     Spacer().frame(height: 30)
                     Text("Add your memory verse!")
