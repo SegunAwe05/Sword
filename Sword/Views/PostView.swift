@@ -11,6 +11,10 @@ struct PostView: View {
     @State var scripture = ""
     @State var verse = ""
     var categories = ["Love", "Anxiety", "Healing", "Anger", "Hope", "Fear", "Peace", "Stress", "Patience", "Loss", "Joy", "Temptation", "Pride", "Doubt"]
+    @ObservedObject var vm: verseViewModel
+    @State var topics = [String]()
+    @State var alertToggle = false
+    @Binding var addView: Bool
     
     func dismissKey() {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
@@ -73,30 +77,33 @@ struct PostView: View {
                         
                         HStack {
                             ForEach(categories[0...3], id: \.self) { item in
-                                CategoryButton(topic: item)
+                                CategoryButton(topic: item, topics: $topics)
                             }
                         }
                         
                         HStack {
                             ForEach(categories[4...6], id: \.self) { item in
-                                CategoryButton(topic: item)
+                                CategoryButton(topic: item, topics: $topics)
                             }
                         }
                         
                         HStack {
                             ForEach(categories[7...10], id: \.self) { item in
-                                CategoryButton(topic: item)
+                                CategoryButton(topic: item, topics: $topics)
                             }
                         }
                         HStack {
                             ForEach(categories[11...13], id: \.self) { item in
-                                CategoryButton(topic: item)
+                                CategoryButton(topic: item, topics: $topics)
                             }
                         }
                     }
                     
                     Spacer()
                 }
+            }
+            .alert(isPresented: $alertToggle) {
+                Alert(title: Text("Cannot Save"), message: Text("Please fill in all text fields"), dismissButton: .default(Text("Ok")))
             }
             
             // MARK: Add button
@@ -105,7 +112,16 @@ struct PostView: View {
                 HStack {
                     Spacer()
                     Button {
-                        //
+                        if verse.isEmpty || scripture.isEmpty  || topics.count < 3 {
+                            alertToggle.toggle()
+                        } else {
+                            vm.addVerse(verse: verse, scripture: scripture, topics: topics)
+                            verse = ""
+                            scripture = ""
+                            addView = false
+                        }
+                        
+                        
                     } label: {
                         Image(systemName: "checkmark")
                             .foregroundColor(Color("Text-Purple"))
@@ -123,6 +139,6 @@ struct PostView: View {
 
 struct PostView_Previews: PreviewProvider {
     static var previews: some View {
-        PostView()
+        PostView(vm: verseViewModel(), addView: .constant(false))
     }
 }

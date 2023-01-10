@@ -15,6 +15,8 @@
 		5088838C296361960029198B /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5088838B296361960029198B /* PostView.swift */; };
 		5088838E29638B450029198B /* CategoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5088838D29638B450029198B /* CategoryButton.swift */; };
 		50888390296788D70029198B /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5088838F296788D70029198B /* SearchBar.swift */; };
+		50888393296CFC5A0029198B /* verseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50888392296CFC5A0029198B /* verseViewModel.swift */; };
+		50888396296CFCB50029198B /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 50888394296CFCB50029198B /* CoreData.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		5088838B296361960029198B /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		5088838D29638B450029198B /* CategoryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryButton.swift; sourceTree = "<group>"; };
 		5088838F296788D70029198B /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		50888392296CFC5A0029198B /* verseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = verseViewModel.swift; sourceTree = "<group>"; };
+		50888395296CFCB50029198B /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,9 +65,11 @@
 			children = (
 				50888379295E46210029198B /* SwordApp.swift */,
 				50888388295E4FFC0029198B /* Components */,
+				50888391296CFC310029198B /* ViewModel */,
 				50888387295E4D470029198B /* Views */,
 				5088837D295E46220029198B /* Assets.xcassets */,
 				5088837F295E46220029198B /* Preview Content */,
+				50888394296CFCB50029198B /* CoreData.xcdatamodeld */,
 			);
 			path = Sword;
 			sourceTree = "<group>";
@@ -93,6 +99,14 @@
 				5088838F296788D70029198B /* SearchBar.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		50888391296CFC310029198B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				50888392296CFC5A0029198B /* verseViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,6 +179,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50888396296CFCB50029198B /* CoreData.xcdatamodeld in Sources */,
+				50888393296CFC5A0029198B /* verseViewModel.swift in Sources */,
 				5088837C295E46210029198B /* ContentView.swift in Sources */,
 				5088838E29638B450029198B /* CategoryButton.swift in Sources */,
 				5088838A295E50180029198B /* CardView.swift in Sources */,
@@ -371,6 +387,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		50888394296CFCB50029198B /* CoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				50888395296CFCB50029198B /* CoreData.xcdatamodel */,
+			);
+			currentVersion = 50888395296CFCB50029198B /* CoreData.xcdatamodel */;
+			path = CoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 5088836E295E46210029198B /* Project object */;
 }

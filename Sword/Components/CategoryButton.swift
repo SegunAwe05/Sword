@@ -10,10 +10,18 @@ import SwiftUI
 struct CategoryButton: View {
     @State var check = false
     var topic: String
+    @Binding var topics: [String]
     var body: some View {
         Button {
-            print(topic)
             check.toggle()
+            
+            if check == true {  // selecting and diselecting from list
+                topics.append(topic)
+            } else if topics.contains(topic) {
+                topics.removeAll{$0 == topic}
+            }
+            print(topics)
+            
         } label: {
             Text(topic)
                 .padding()
@@ -26,6 +34,6 @@ struct CategoryButton: View {
 
 struct CategoryButton_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryButton(topic: "Love")
+        CategoryButton(topic: "Love", topics: .constant([""]))
     }
 }
