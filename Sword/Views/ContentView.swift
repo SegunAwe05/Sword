@@ -11,6 +11,8 @@ struct ContentView: View {
     @StateObject var vm = verseViewModel()
     @State var addView = false
     @State var searchText = ""
+    @State var isTopicFilter = false
+    @State var topicSearch = ""
     var categories = ["Love", "Anxiety", "Healing", "Anger", "Hope", "Fear", "Peace", "Stress", "Patience", "Loss", "Joy", "Temptation", "Pride", "Doubt"]
     
     func dismissKey() {
@@ -46,23 +48,23 @@ struct ContentView: View {
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack {
                             ForEach(categories, id: \.self) { item in
-                                Button {
-                                    // filter somehow
-                                } label: {
-                                    Text(item)
-                                        .padding(10)
-                                        .background(Color("Card-Purple"))
-                                        .foregroundColor(Color("Text-Purple"))
-                                        .cornerRadius(7)
-                                }
+                                TopicFilterView(isTopicFilter: $isTopicFilter, topicSearch: $topicSearch, topic: item)
                             }
                         }.padding(.horizontal)
                     }
                     
                     
                     List() {
-                        ForEach(vm.savedVerses.filter({($0.verse?.localizedCaseInsensitiveContains(searchText))! || searchText.isEmpty })) { value in
-                            CardView(scripture: value.scripture ?? "NA", verse: value.verse ?? "No verse", topicOne: value.topics?[0] ?? "", topicTwo: value.topics?[1] ?? "", topicThree: value.topics?[2] ?? "")
+                        ForEach(vm.savedVerses.filter({($0.verse?.localizedCaseInsensitiveContains(searchText))! || searchText.isEmpty }).reversed()) { value in
+                            
+                            // checking if filter is active
+                            if  isTopicFilter == true {
+                                if value.topics!.contains(topicSearch) {
+                                    CardView(scripture: value.scripture ?? "NA", verse: value.verse ?? "No verse", topicsArr: value.topics ?? [""])
+                                }
+                            } else {
+                                CardView(scripture: value.scripture ?? "NA", verse: value.verse ?? "No verse", topicsArr: value.topics ?? [""])
+                            }
                             
                         }.onDelete(perform: vm.listSwipeDelete)
                         .listRowBackground(Color("Main-Purple"))
