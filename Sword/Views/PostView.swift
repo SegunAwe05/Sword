@@ -72,7 +72,7 @@ struct PostView: View {
                             .bold()
                             .foregroundColor(Color("Text-Purple"))
                             .padding()
-                        Text("(Select up to 3)")
+                        Text("(Select at least 3)")
                             .foregroundColor(Color("Text-Purple"))
                         
                         HStack {
@@ -112,7 +112,7 @@ struct PostView: View {
                 HStack {
                     Spacer()
                     Button {
-                        if verse.isEmpty || scripture.isEmpty  || topics.count < 3 {
+                        if verse.isEmpty || scripture.isEmpty {
                             alertToggle.toggle()
                         } else {
                             vm.addVerse(verse: verse, scripture: scripture, topics: topics)
