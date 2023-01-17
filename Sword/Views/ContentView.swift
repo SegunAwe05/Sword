@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var vm = verseViewModel()
+    @StateObject var statsVM = UserStatsViewModel()
     @State var addView = false
     @State var searchText = ""
     @State var isTopicFilter = false
@@ -39,7 +40,7 @@ struct ContentView: View {
                     
                     HStack {
                         Spacer()
-                        Text("You're on a 3 day streak!")
+                        Text("You're on a \(statsVM.streak) day streak!")
                             .foregroundColor(Color("Text-Purple"))
                             .padding()
                     }
@@ -100,6 +101,8 @@ struct ContentView: View {
                     }
                 
             }
+        }.onAppear {
+            statsVM.checkForStreak()
         }
     }
 }
