@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var vm = verseViewModel()
+    @StateObject var statsVM = UserStatsViewModel()
     @State var addView = false
     @State var searchText = ""
     @State var isTopicFilter = false
@@ -39,7 +40,7 @@ struct ContentView: View {
                     
                     HStack {
                         Spacer()
-                        Text("You're on a 3 day streak!")
+                        Text("You're on a \(statsVM.streak) day streak!")
                             .foregroundColor(Color("Text-Purple"))
                             .padding()
                     }
@@ -66,9 +67,10 @@ struct ContentView: View {
                                 CardView(scripture: value.scripture ?? "NA", verse: value.verse ?? "No verse", topicsArr: value.topics ?? [""])
                             }
                             
-                        }.onDelete(perform: vm.listSwipeDelete)
+                        }
+                        .onDelete(perform: vm.listSwipeDelete)
                         .listRowBackground(Color("Main-Purple"))
-                            .listRowSeparator(.hidden)
+                        .listRowSeparator(.hidden)
                         
                     }.listStyle(.plain)
                         .background(Color("Main-Purple"))
@@ -100,6 +102,8 @@ struct ContentView: View {
                     }
                 
             }
+        }.onAppear {
+            statsVM.checkForStreak()
         }
     }
 }

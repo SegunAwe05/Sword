@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21512" systemVersion="22A400" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="VerseEntity" representedClassName="VerseEntity" syncable="YES" codeGenerationType="class">
-        <attribute name="recentDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="scripture" optional="YES" attributeType="String"/>
-        <attribute name="streak" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="topics" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformer" customClassName="[String]"/>
         <attribute name="verse" optional="YES" attributeType="String"/>
     </entity>
