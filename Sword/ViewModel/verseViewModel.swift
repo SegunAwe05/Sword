@@ -44,9 +44,11 @@ class verseViewModel: ObservableObject {
     
     func listSwipeDelete(indexSet: IndexSet) {
               guard let index = indexSet.first else {return}
-              let entity = savedVerses[index]
+        let realIndex = savedVerses.count - (index + 1)
+              let entity = savedVerses[realIndex]
               container.viewContext.delete(entity)
               saveData()
+              print("Hello")
           }
     
     

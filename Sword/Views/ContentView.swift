@@ -67,9 +67,10 @@ struct ContentView: View {
                                 CardView(scripture: value.scripture ?? "NA", verse: value.verse ?? "No verse", topicsArr: value.topics ?? [""])
                             }
                             
-                        }.onDelete(perform: vm.listSwipeDelete)
+                        }
+                        .onDelete(perform: vm.listSwipeDelete)
                         .listRowBackground(Color("Main-Purple"))
-                            .listRowSeparator(.hidden)
+                        .listRowSeparator(.hidden)
                         
                     }.listStyle(.plain)
                         .background(Color("Main-Purple"))
