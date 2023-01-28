@@ -14,6 +14,7 @@ struct ContentView: View {
     @State var searchText = ""
     @State var isTopicFilter = false
     @State var topicSearch = ""
+    @State var isNotificationView = false
     var categories = ["Love", "Anxiety", "Healing", "Anger", "Hope", "Fear", "Peace", "Stress", "Patience", "Loss", "Joy", "Temptation", "Pride", "Doubt"]
     
     func dismissKey() {
@@ -36,6 +37,16 @@ struct ContentView: View {
                             .foregroundColor(Color("Text-Purple"))
                             .padding()
                         Spacer()
+                        
+                        Button {
+                            isNotificationView.toggle()
+                        } label: {
+                            Image(systemName: "bell")
+                                .padding()
+                                .font(.system(size: 25))
+                                .foregroundColor(Color("Text-Purple"))
+                        }
+                        
                     }
                     
                     HStack {
@@ -99,6 +110,10 @@ struct ContentView: View {
                 
                     .sheet(isPresented: $addView) {
                         PostView(vm: vm, addView: $addView)
+                    }
+                    .popover(isPresented: $isNotificationView) {
+
+                        NotificationView(isNotificationView: $isNotificationView)
                     }
                 
             }
