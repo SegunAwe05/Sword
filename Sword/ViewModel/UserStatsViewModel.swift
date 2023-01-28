@@ -15,7 +15,7 @@ class UserStatsViewModel: ObservableObject {
     var calendar = Calendar(identifier: .gregorian)
     var currentDate = Date()
     var lastDate = Foundation.UserDefaults.standard.object(forKey: "lastDate") as? Date
-    var weekday = UserDefaults.standard.integer(forKey: "weekday")
+    
     
     init() {
         let options: UNAuthorizationOptions = [.alert, .sound, .badge]
@@ -26,7 +26,8 @@ class UserStatsViewModel: ObservableObject {
                 print("success")
             }
         }
-//        UserDefaults.standard.set(4, forKey: "weekday")
+        cancelNotifications()
+
     }
     
 
@@ -42,14 +43,10 @@ class UserStatsViewModel: ObservableObject {
             streak += 1
             UserDefaults.standard.set(streak, forKey: "streak")
             print("streak continues")
-            cancelNotifications()
-            reminderNotification()
         } else if dayDifference > 0 {
             UserDefaults.standard.set(currentDate, forKey: "lastDate")
             UserDefaults.standard.set(0, forKey: "streak")
             print("streak lost starting from 0")
-            cancelNotifications()
-            reminderNotification()
         } else {
             UserDefaults.standard.set(currentDate, forKey: "lastDate")
             print("never had a streak setting date")
@@ -63,18 +60,10 @@ class UserStatsViewModel: ObservableObject {
         content.subtitle = "The day is almost over, check back in to feed your spirit"
         content.sound = .default
         
-        if weekday == 7 {
-            UserDefaults.standard.set(1, forKey: "weekday")
-        } else {
-            weekday += 1
-            UserDefaults.standard.set(weekday, forKey: "weekday")
-        }
         
         var dateCompenents = DateComponents()
-        dateCompenents.weekday = weekday
         dateCompenents.hour = 21
         dateCompenents.minute = 00
-        
         
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateCompenents, repeats: false)

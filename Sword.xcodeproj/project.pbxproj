@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		501D3D68297380CD0015147C /* UserStatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501D3D67297380CD0015147C /* UserStatsViewModel.swift */; };
 		501D3D6A297F396B0015147C /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 501D3D69297F396B0015147C /* Launch Screen.storyboard */; };
+		501D3D6C2984973F0015147C /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501D3D6B2984973F0015147C /* NotificationView.swift */; };
 		5088837A295E46210029198B /* SwordApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50888379295E46210029198B /* SwordApp.swift */; };
 		5088837C295E46210029198B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5088837B295E46210029198B /* ContentView.swift */; };
 		5088837E295E46220029198B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5088837D295E46220029198B /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		501D3D67297380CD0015147C /* UserStatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatsViewModel.swift; sourceTree = "<group>"; };
 		501D3D69297F396B0015147C /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		501D3D6B2984973F0015147C /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		50888376295E46210029198B /* Sword.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sword.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50888379295E46210029198B /* SwordApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwordApp.swift; sourceTree = "<group>"; };
 		5088837B295E46210029198B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 			children = (
 				5088837B295E46210029198B /* ContentView.swift */,
 				5088838B296361960029198B /* PostView.swift */,
+				501D3D6B2984973F0015147C /* NotificationView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 				50888396296CFCB50029198B /* CoreData.xcdatamodeld in Sources */,
 				50888393296CFC5A0029198B /* verseViewModel.swift in Sources */,
 				5088837C295E46210029198B /* ContentView.swift in Sources */,
+				501D3D6C2984973F0015147C /* NotificationView.swift in Sources */,
 				501D3D68297380CD0015147C /* UserStatsViewModel.swift in Sources */,
 				5088838E29638B450029198B /* CategoryButton.swift in Sources */,
 				5088838A295E50180029198B /* CardView.swift in Sources */,
