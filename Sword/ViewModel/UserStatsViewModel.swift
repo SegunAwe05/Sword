@@ -15,7 +15,7 @@ class UserStatsViewModel: ObservableObject {
     var calendar = Calendar(identifier: .gregorian)
     var currentDate = Date()
     var lastDate = Foundation.UserDefaults.standard.object(forKey: "lastDate") as? Date
-    
+    @Published var isNotificationSet = UserDefaults.standard.bool(forKey: "notificationSet")
     
     init() {
         let options: UNAuthorizationOptions = [.alert, .sound, .badge]
@@ -26,14 +26,10 @@ class UserStatsViewModel: ObservableObject {
                 print("success")
             }
         }
-        cancelNotifications()
 
     }
     
 
-    
-    
-    
     func checkForStreak() {
         let dayDifference = calendar.numberOfDaysBetween(lastDate ?? currentDate, and: currentDate)
         
@@ -53,29 +49,28 @@ class UserStatsViewModel: ObservableObject {
         }
     }
     
-    func reminderNotification() {
+    func reminderNotification(date: Date) {
         
         let content = UNMutableNotificationContent()
-        content.title = "Don't lose your streak!"
-        content.subtitle = "The day is almost over, check back in to feed your spirit"
+        content.title = "Hey time to check back in"
+        content.subtitle = "Log back in to read your memory verse"
         content.sound = .default
         
         
-        var dateCompenents = DateComponents()
-        dateCompenents.hour = 21
-        dateCompenents.minute = 00
+        let dateCompenents = Calendar.current.dateComponents([.hour, .minute], from: date)
         
-        
-        let trigger = UNCalendarNotificationTrigger(dateMatching: dateCompenents, repeats: false)
-
-
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateCompenents, repeats: true)
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request)
+        
+        UserDefaults.standard.set(true, forKey: "notificationSet")
+        
+        print("added reminder notification")
     }
     
     func cancelNotifications() {
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-//        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+        UserDefaults.standard.set(false, forKey: "notificationSet")
     }
 }
 

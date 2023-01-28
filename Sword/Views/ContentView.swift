@@ -113,7 +113,7 @@ struct ContentView: View {
                     }
                     .popover(isPresented: $isNotificationView) {
 
-                        NotificationView()
+                        NotificationView(isNotificationView: $isNotificationView)
                     }
                 
             }
