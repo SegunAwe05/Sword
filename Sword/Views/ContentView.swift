@@ -11,10 +11,14 @@ struct ContentView: View {
     @StateObject var vm = verseViewModel()
     @StateObject var statsVM = UserStatsViewModel()
     @State var addView = false
+    @State var editView = false
     @State var searchText = ""
     @State var isTopicFilter = false
     @State var topicSearch = ""
     @State var isNotificationView = false
+    @State var scripture = ""
+    @State var verse = ""
+    
     var categories = ["Love", "Anxiety", "Healing", "Anger", "Hope", "Fear", "Peace", "Stress", "Patience", "Loss", "Joy", "Temptation", "Pride", "Doubt"]
     
     func dismissKey() {
@@ -72,12 +76,15 @@ struct ContentView: View {
                             // checking if filter is active
                             if  isTopicFilter == true {
                                 if value.topics!.contains(topicSearch) {
-                                    CardView(scripture: value.scripture ?? "NA", verse: value.verse ?? "No verse", topicsArr: value.topics ?? [""])
+                                    NavigationLink(destination: DetailView(scripture: value.scripture!, verse: value.verse!,  vm: vm, entity: value)) {
+                                        CardView(scripture: value.scripture ?? "NA", verse: value.verse ?? "No verse", topicsArr: value.topics ?? [""])
+                                    }
                                 }
                             } else {
-                                CardView(scripture: value.scripture ?? "NA", verse: value.verse ?? "No verse", topicsArr: value.topics ?? [""])
+                                NavigationLink(destination: DetailView(scripture: value.scripture!, verse: value.verse!,  vm: vm, entity: value)) {
+                                    CardView(scripture: value.scripture ?? "NA", verse: value.verse ?? "No verse", topicsArr: value.topics ?? [""])
+                                }
                             }
-                            
                         }
                         .onDelete(perform: vm.listSwipeDelete)
                         .listRowBackground(Color("Main-Purple"))
@@ -111,6 +118,11 @@ struct ContentView: View {
                     .sheet(isPresented: $addView) {
                         PostView(vm: vm, addView: $addView)
                     }
+                    
+//                    .sheet(isPresented: $editView) {
+//                        DetailView(scripture: scripture, verse: verse, vm: vm, entity: <#VerseEntity#> )
+//
+//                    }
                     .popover(isPresented: $isNotificationView) {
 
                         NotificationView(isNotificationView: $isNotificationView)

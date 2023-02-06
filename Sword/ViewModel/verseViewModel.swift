@@ -51,6 +51,18 @@ class verseViewModel: ObservableObject {
               print("Hello")
           }
     
+    func saveEdits(entity: VerseEntity, verse: String, scripture: String) {
+        do {
+            entity.verse = verse
+            entity.scripture = scripture
+            try container.viewContext.save()
+            fetchVerseData()
+        } catch {
+            container.viewContext.rollback()
+            
+        }
+    }
+    
     
     func saveData() {
               do {
