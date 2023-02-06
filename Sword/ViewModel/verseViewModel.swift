@@ -42,19 +42,17 @@ class verseViewModel: ObservableObject {
                     
     }
     
-    func listSwipeDelete(indexSet: IndexSet) {
-              guard let index = indexSet.first else {return}
-        let realIndex = savedVerses.count - (index + 1)
-              let entity = savedVerses[realIndex]
+    func deleteVerse(entity: VerseEntity) {
               container.viewContext.delete(entity)
               saveData()
               print("Hello")
           }
     
-    func saveEdits(entity: VerseEntity, verse: String, scripture: String) {
+    func saveEdits(entity: VerseEntity, verse: String, scripture: String, topics: [String]) {
         do {
             entity.verse = verse
             entity.scripture = scripture
+            entity.topics = topics
             try container.viewContext.save()
             fetchVerseData()
         } catch {

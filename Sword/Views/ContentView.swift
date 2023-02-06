@@ -69,32 +69,33 @@ struct ContentView: View {
                         }.padding(.horizontal)
                     }
                     
-                    
-                    List() {
-                        ForEach(vm.savedVerses.filter({($0.verse?.localizedCaseInsensitiveContains(searchText))! || searchText.isEmpty }).reversed()) { value in
+                    ScrollView(showsIndicators: false) {
+                        ForEach(Array(vm.savedVerses.filter({($0.verse?.localizedCaseInsensitiveContains(searchText))! || searchText.isEmpty }).reversed().enumerated()), id: \.element) {  index, value in
                             
                             // checking if filter is active
                             if  isTopicFilter == true {
                                 if value.topics!.contains(topicSearch) {
-                                    NavigationLink(destination: DetailView(scripture: value.scripture!, verse: value.verse!,  vm: vm, entity: value)) {
+                                    
+                                    NavigationLink(destination: DetailView(scripture: value.scripture!, verse: value.verse!,  topics: value.topics!, vm: vm, entity: value)) {
                                         CardView(scripture: value.scripture ?? "NA", verse: value.verse ?? "No verse", topicsArr: value.topics ?? [""])
+                                            .multilineTextAlignment(.leading)
+                                         
                                     }
+                                    Spacer().frame(height: 15)
                                 }
                             } else {
-                                NavigationLink(destination: DetailView(scripture: value.scripture!, verse: value.verse!,  vm: vm, entity: value)) {
+                                NavigationLink(destination: DetailView(scripture: value.scripture!, verse: value.verse!,  topics: value.topics!, vm: vm, entity: value)) {
                                     CardView(scripture: value.scripture ?? "NA", verse: value.verse ?? "No verse", topicsArr: value.topics ?? [""])
+                                        .multilineTextAlignment(.leading)
                                 }
+                                Spacer().frame(height: 15)
                             }
                         }
-                        .onDelete(perform: vm.listSwipeDelete)
-                        .listRowBackground(Color("Main-Purple"))
-                        .listRowSeparator(.hidden)
-                        
-                    }.listStyle(.plain)
-                        .background(Color("Main-Purple"))
-                        .onTapGesture {
-                            dismissKey()
-                        }
+                    }
+                    
+                    .onTapGesture {
+                        dismissKey()
+                    }
                 }
                 
                 // the button
@@ -118,13 +119,9 @@ struct ContentView: View {
                     .sheet(isPresented: $addView) {
                         PostView(vm: vm, addView: $addView)
                     }
-                    
-//                    .sheet(isPresented: $editView) {
-//                        DetailView(scripture: scripture, verse: verse, vm: vm, entity: <#VerseEntity#> )
-//
-//                    }
+                
                     .popover(isPresented: $isNotificationView) {
-
+                        
                         NotificationView(isNotificationView: $isNotificationView)
                     }
                 
