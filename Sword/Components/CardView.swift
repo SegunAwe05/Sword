@@ -25,6 +25,7 @@ struct CardView: View {
                         .background(Color("Text-Purple"))
                         .foregroundColor(.black)
                         .cornerRadius(7)
+                        .multilineTextAlignment(.leading)
                 }
                
  
