@@ -79,6 +79,21 @@ struct ContentView: View {
                                     NavigationLink(destination: DetailView(scripture: value.scripture!, verse: value.verse!,  topics: value.topics!, vm: vm, entity: value)) {
                                         CardView(scripture: value.scripture ?? "NA", verse: value.verse ?? "No verse", topicsArr: value.topics ?? [""])
                                             .multilineTextAlignment(.leading)
+                                            .contextMenu {
+                                                Button {
+                                                    // add set favorite for widget kit
+                                                } label: {
+                                                    Label("Set as verse of the week", systemImage: "star")
+                                                }
+                                                Button(role: .destructive) {
+                                                    // add delete function
+                                                } label: {
+                                                    Label("Delete", systemImage: "trash")
+                                                        
+                                                }
+                                            } preview: {
+                                                CardView(scripture: value.scripture ?? "NA", verse: value.verse ?? "No verse", topicsArr: value.topics ?? [""])
+                                            }
                                          
                                     }
                                     Spacer().frame(height: 15)
@@ -87,10 +102,27 @@ struct ContentView: View {
                                 NavigationLink(destination: DetailView(scripture: value.scripture!, verse: value.verse!,  topics: value.topics!, vm: vm, entity: value)) {
                                     CardView(scripture: value.scripture ?? "NA", verse: value.verse ?? "No verse", topicsArr: value.topics ?? [""])
                                         .multilineTextAlignment(.leading)
+                                        .contextMenu {
+                                            Button {
+                                                // add set favorite for widget kit
+                                            } label: {
+                                                Label("Set as verse of the week", systemImage: "star")
+                                            }
+                                            Button(role: .destructive) {
+                                                // add delete function
+                                            } label: {
+                                                Label("Delete", systemImage: "trash")
+                                                   
+                                            }
+                                        } preview: {
+                                            CardView(scripture: value.scripture ?? "NA", verse: value.verse ?? "No verse", topicsArr: value.topics ?? [""])
+                                        }
+                                     
                                 }
                                 Spacer().frame(height: 15)
                             }
                         }
+                       
                     }
                     
                     .onTapGesture {
